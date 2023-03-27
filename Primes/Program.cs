@@ -22,7 +22,7 @@ namespace Primes
         }
         public static bool IsPrime(float number)
         {
-            if(number <= 1)     // cualquier numero menor que 1 no es primo
+            if(number <= 1)     // cualquier numero menor que 1, no es primo
                 return false;
             if (number == 2)    // igual a 2 es primo
                 return true;
