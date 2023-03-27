@@ -6,7 +6,7 @@ namespace Primes
     {
         static void Main(string[] args)
         {
-            float num;
+            int num;
             string response;
             Console.WriteLine("Enter a number: ");  // 7
             response = Console.ReadLine();
@@ -20,7 +20,7 @@ namespace Primes
                 Console.WriteLine(num + ": is not prime");  // es false
             }
         }
-        public static bool IsPrime(float number)
+        public static bool IsPrime(int number)
         {
             if(number <= 1)     // cualquier numero menor que 1, no es primo
                 return false;
