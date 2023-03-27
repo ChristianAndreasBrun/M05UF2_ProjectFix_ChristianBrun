@@ -7,7 +7,7 @@ namespace DNI
         static void Main(string[] args)
         {
             Console.WriteLine("Write your DNI/NIF number (Without the letter):");
-            int number = int.Parse(Console.ReadLine());
+            int number = int.Parse(Console.ReadLine()); // Parsea el input a numero entero
             Console.WriteLine("Your complete DNI/NIF is: " + number + LetterNIF(number));
         }
 
@@ -18,7 +18,9 @@ namespace DNI
         /// <returns></returns>
         public static char LetterNIF(int number)
         {
-            return '-';
+            string letterTable = "TRWAGMYFPDXBNJZSQVHLCKE"; // Tabla de letras para calcular la letra de un DNI/NIF
+            int index = number % 23; // Calcula el índice correspondiente a la letra
+            return letterTable[index]; // Devuelve la letra correspondiente
         }
     }
 }
