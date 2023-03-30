@@ -29,13 +29,16 @@ namespace Primes
             if (number % 2 == 0)    // dividiendo a modulo 2 que sea igual a 0, no es primo
                 return false;
 
+            // Comprueba si el número es divisible por algún número impar mayor que 3
             for (int i = 3; i <= number / 2; i += 2)
             {
+                // Si el número es divisible por "i", no es primo
                 if (number % i == 0)
                 {
                     return false;
                 }
             }
+            // Si el número no es divisible por ningún número hasta la mitad de sí mismo, entonces es primo
 
             //TODO
             return true;
