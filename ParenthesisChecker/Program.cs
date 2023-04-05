@@ -8,43 +8,32 @@ namespace ParenthesisChecker
         {
             Console.WriteLine("Please write a text with parenthesis");
             string response = Console.ReadLine();
-            if (CheckParentheses(response))
-            {
-                Console.WriteLine("The parenthesis close");
-            }
-            else
+            int open = CountChars(response, '(');   //Se abre la parentesis
+            int close = CountChars(response, ')');  //Se cierra la parentesis
+            if(open != close)
             {
                 Console.WriteLine("The parenthesis don't close");
             }
-        }
-
-        public static bool CheckParentheses(string text)
-        {
-            int amount = 0;  // Inicializamos el contador en 0
-            for (int i = 0; i < text.Length; i++)   // Recorremos la cadena de texto con un ciclo "for"
+            else
             {
-                if (text[i] == '(')  // Si encontramos un paréntesis abierto, incrementamos el contador
+                Console.WriteLine("The parenthesis close");
+            }
+        }
+        public static int CountChars(string text, char search)
+        {
+            int amount = 0; //Inicializa el contador a 0
+            for (int i = 0; i < text.Length; i++)   //Recorre la cadena de texto
+            {
+                if (text[i] == search)  //Si el caracter en la posicion "i" es igual que "search", incrmenta
                 {
                     amount++;
                 }
-                else if (text[i] == ')')  // Si encontramos un paréntesis cerrado, decrementamos el contador
+                else if (text[i] != search) //Si el caracter en la posicion "i" no es igual a "search", decrementa
                 {
                     amount--;
-                    if (amount < 0)  // Si el contador es negativo, hay más paréntesis cerrados que abiertos, lo que es incorrecto
-                    {
-                        return false;  // Devolvemos "false" para indicar que la cadena de texto tiene paréntesis mal balanceados
-                    }
                 }
             }
-            if (amount == 0)  // Si el contador es igual a 0 al final del ciclo, todos los paréntesis están correctamente balanceados
-            {
-                return true;  // Devolvemos "true" para indicar que la cadena de texto tiene paréntesis balanceados
-            }
-            else
-            {
-                return false;  // Si el contador es distinto de 0, hay más paréntesis abiertos que cerrados, lo que es incorrecto
-            }
+            return amount;  //Devuelve el valor del contador
         }
     }
 }
-
