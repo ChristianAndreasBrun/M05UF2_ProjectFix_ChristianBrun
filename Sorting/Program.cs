@@ -25,16 +25,16 @@ namespace Sorting
 
         static public List<int> Sort(List<int> list)
         {
-            // Aquí se usa el algoritmo "Bubble Sort"
+            // Algoritmo "Bubble Sort" > Se define una funcion que recibe una lista de enteros y la devuelve ordenada
             for (int i = 0; i < list.Count - 1; i++)
             {
-                for (int j = i + 1; j < list.Count; j++)
+                for (int j = i + 1; j < list.Count; j++)    //Recorre la lista anidado para comparar cada elemento con los demas
                 {
                     if (list[j] < list[i])  //Si "j" es menor que "i", se intercambian
                     {
-                        int temp = list[i];
-                        list[i] = list[j];
-                        list[j] = temp;
+                        int temp = list[i]; //Almacena el valor de la posicion "i" en una variable temporal
+                        list[i] = list[j];  //Coloca el valor de la posicion "j" en la posicion "i"
+                        list[j] = temp; //Coloca el valor temporal en la posicion "j"
                     }
                 }
             }
