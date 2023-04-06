@@ -12,7 +12,7 @@ namespace Tests
         {
             //Arrange
             int original = Utils.random.Next();
-            bool result = false;
+            bool result;
             bool resultOK = Utils.IsPrimeOK(original);
             //Act
             result = Primes.Program.IsPrime(original);

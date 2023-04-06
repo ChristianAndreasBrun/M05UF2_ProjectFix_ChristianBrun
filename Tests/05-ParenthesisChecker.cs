@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Linq;
 using System.Text;
 
@@ -10,6 +11,8 @@ namespace Tests
         [TestMethod]
         public void ParenthesisChecker_Test()
         {
+            
+
             //Arrange
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < Utils.random.Next(10,100); i++)
@@ -30,12 +33,15 @@ namespace Tests
                 int countOpen = original.Count(c => c == '(');
                 int countClose = original.Count(c => c == ')');
                 resultOK = countOpen == countClose;
+                Console.WriteLine(countOpen + " " + countClose);
             }
+
             bool result = false;
             //Act
-            result = ParenthesisChecker.Program.CountChars(original, ')') == ParenthesisChecker.Program.CountChars(original, '(');
+            result = ParenthesisChecker.Program.CountChars(original, '(') == ParenthesisChecker.Program.CountChars(original, ')');
             //Assert
             Assert.AreEqual(resultOK, result);
+
         }
     }
 }
